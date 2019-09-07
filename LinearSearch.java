@@ -1,7 +1,7 @@
 public class LinearSearch implements Practice03Search {
     @Override
     public String searchName() {
-        String name = "Linear Search";
+        String name = "Linear Search ";
         return name;
     }
 
