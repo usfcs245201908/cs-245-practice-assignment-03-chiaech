@@ -9,15 +9,23 @@ public class BinaryRecursiveSearch implements Practice03Search {
     public int search(int[] arr, int target) {
         int low = 0;
         int high = arr.length - 1;
-        int mid = (low + high)/2;
+        return search(arr, target, low, high);
+    }
 
-        if (low > high)
+    public int search(int[] arr, int target, int low, int high){
+
+        if (low <= high){
+            int mid = (low + high)/2;
+
+            if (arr[mid] == target)
+                return mid;
+            if (arr[mid] > target)
+                return search(arr, target, low, mid - 1);
+            else
+                return search(arr, target, mid + 1, high);
+        } else {
             return -1;
-        else if (arr[mid] == target)
-            return mid;
-        else if (arr[mid] > target)
-           return search(arr, target);
-        else
-            return search(arr, target);
+        }
+
     }
 }
